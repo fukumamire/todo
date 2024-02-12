@@ -11,7 +11,6 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Todo::all();
-        // return view('index');
         return view('index', compact('todos'));
     }
 
@@ -19,8 +18,8 @@ class TodoController extends Controller
     {
         $todo = $request->only(['content']);
         Todo::create($todo);
-
-        return redirect('/');
-    }
+    //  メッセージをセッションに保存してリダイレクト
+        return redirect('/')->with('message', 'Todoを作成しました!');
+    }    
 
 }

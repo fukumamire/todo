@@ -13,6 +13,15 @@
     {{ session('message') }}
     </div>
   @endif
+  @if($errors->any())
+    <div class="todo__alert--danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+    </div>
+  @endif
 </div>
 
 
@@ -31,7 +40,7 @@
       <tr class="todo-table__row">
         <th class="todo-table__header">Todo</th>
       </tr>
-      @foreach ($todos ?? '' as $todo)
+      @foreach ($todos as $todo)
       <tr class="todo-table__row">
         <td class="todo-table__item">
           <form class="update-form">

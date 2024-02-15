@@ -22,4 +22,12 @@ class TodoController extends Controller
         return redirect('/')->with('message', 'Todoを作成しました!');
     }    
 
+    public function update(Request $request)
+    {
+        $todo = $request->only(['content']);
+        // モデルクラス::find(主キー)->update(更新するキー => 値);
+        Todo::find($request->id)->update($todo);
+        return redirect('/')->with('message', 'Todoを更新しました');
+    }
+    
 }

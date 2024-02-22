@@ -23,7 +23,7 @@ class TodoController extends Controller
         $todo = $request->only(['content']);
         Todo::create($todo);
     //  メッセージをセッションに保存してリダイレクト
-        return redirect('/')->with('message', 'Todoを作成しました!');
+        return redirect('/')->with('message', 'Todoを作成しました');
     }    
 
     public function update(TodoRequest $request)

@@ -11,6 +11,7 @@ class TodoController extends Controller
 {
     public function index()
     {
+        
         $todos = Todo::with('category')->get();
         $categories = Category::all();
 

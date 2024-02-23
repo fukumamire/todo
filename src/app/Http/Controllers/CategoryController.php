@@ -6,6 +6,7 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
+
 class CategoryController extends Controller
 {
     public function index()
@@ -15,7 +16,7 @@ class CategoryController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $category= $request->only(['name']);
         Category::create($category);

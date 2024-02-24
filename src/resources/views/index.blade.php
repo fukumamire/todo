@@ -66,7 +66,7 @@
       @foreach ($todos as $todo)
       <tr class="todo-table__row">
         <td class="todo-table__item">
-          <form class="update-form" action="/todos/update" method="POST">
+          <form class="update-form" action="/todos/{todo_id}" method="POST">
             @method('PATCH')
             @csrf
             <div class="update-form__item">
@@ -82,7 +82,7 @@
           </form>
         </td>
         <td class="todo-table__item">
-          <form class="delete-form" action="/todos/delete" method="POST">
+          <form class="delete-form" action="/todos/{todo_id}" method="POST">
             @method('DELETE')
             @csrf
             <div class="delete-form__button">

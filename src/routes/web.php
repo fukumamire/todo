@@ -18,12 +18,18 @@ Route::get('/', [TodoController::class, 'index']);
 
 Route::post('/todos', [TodoController::class, 'store']);
 
-Route::patch('/todos/update', [TodoController::class, 'update']);
+Route::patch('/todos/{todo_id}', [TodoController::class, 'update']);
 
-Route::delete('/todos/delete', [TodoController::class, 'destroy']);
+Route::delete('/todos/{todo_id}', [TodoController::class, 'destroy']);
 
 // カテゴリー一覧を表示する
 Route::get('/categories',[CategoryController::class, 'index']);
 
 //カテゴリ‐ 追加機能
 Route::post('/categories',[CategoryController::class, 'store']);
+
+//カテゴリの更新に対応するルート
+Route::patch('/categories/{category_id}', [CategoryController::class, 'update']);
+
+//削除
+Route::delete('/categories/{category_id}', [CategoryController::class, 'destroy']);

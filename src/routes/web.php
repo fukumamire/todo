@@ -21,6 +21,9 @@ Route::post('/todos', [TodoController::class, 'store']);
 Route::patch('/todos/{todo_id}', [TodoController::class, 'update']);
 
 Route::delete('/todos/{todo_id}', [TodoController::class, 'destroy']);
+//検索
+Route::get('/todos/search',[TodoController::class, 'search']);
+
 
 // カテゴリー一覧を表示する
 Route::get('/categories',[CategoryController::class, 'index']);

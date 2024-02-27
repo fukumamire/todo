@@ -18,6 +18,15 @@ class TodoController extends Controller
         return view('index', compact('todos', 'categories'));
     }
 
+    public function search(Request $request)
+    {
+        $todos = Todo::with('category')->categorySearch($request->category_id)->keywordSearch($request->keyword)->get();
+        $categories = Category::all();
+
+        return view('index', compact('todos', 'categories'));
+
+    }    
+
     public function store(TodoRequest $request)
     {
         $todo = $request->only(['category_id','content']);
